@@ -15,9 +15,10 @@ storageArray = []
 for review, star in zip(reviewList, starList):
     negCount = len(star.findAll('div', class_ = 'L0jl5e bUWb7c'))
     posCount = 5 - negCount
+    reviewtype = posCount > 3
     arr[posCount - 1] += 1
     reviewString = review.text
-    totalReview = (reviewString, posCount)
+    totalReview = (reviewString, reviewtype)
     storageArray.append(totalReview)
     #print(reviewString, 5 - negCount, sep = "\n")
 print(storageArray)
